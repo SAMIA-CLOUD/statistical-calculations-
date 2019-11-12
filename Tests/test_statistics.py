@@ -6,7 +6,7 @@ from CsvReader.CsvReader import CsvReader
 
 class MyTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self.statistics = Statistics("Data/Stat.csv")
+        self.statistics = Statistics("Stat.csv")
 
     def test_instantiate_calculator(self):
         self.assertIsInstance(self.statistics, Statistics)
@@ -30,7 +30,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(self.statistics.vpp(), 6)
 
     def test_zscore(self):
-        test_data = CsvReader("Data/Tests/z-score").data
+        test_data = CsvReader("zscore").data
         for row in test_data:
             result = float(row['Result'])
             self.assertEqual(self.statistics.zscore(row['v']), result)
