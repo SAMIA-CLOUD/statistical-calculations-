@@ -1,2 +1,2 @@
 def squaree(a):
-    return float(a) ** 2
+    return abs(float(a) ** 2)
