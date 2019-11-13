@@ -7,7 +7,7 @@ from CsvReader.CsvReader import CsvReader
 class MyTestCase(unittest.TestCase):
     def setUp(self) -> None:
        # self.statistics = Statistics()
-      self.statistics = Statistics("/Tests/Data/Stat.csv")
+      self.statistics = Statistics("/opt/project/Tests/Data/Stat.csv")
 
     def test_instantiate_calculator(self):
         self.assertIsInstance(self.statistics, Statistics)
