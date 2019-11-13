@@ -9,7 +9,7 @@ class MyTestCase(unittest.TestCase):
         self.calculator = Calculator()
 
     def test_add(self):
-        test_data = CsvReader("Data/CSV_reader.csv").data
+        test_data = CsvReader("Tests/Data/CSV_reader.csv").data
         for row in test_data:
             self.assertEqual(row['Value 1'], '580')
 

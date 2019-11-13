@@ -9,4 +9,4 @@ def zscore(numbers):
     m = mean(numbers)
     for numb in numbers:
         result = subtraction(numb, m)
-    return division(standartdev, result)
+        return division(standartdev, result)
