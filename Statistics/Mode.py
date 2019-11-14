@@ -1,2 +1,2 @@
-def mod(numbers):
-    return int(max(numbers,key=numbers.count))
+def mod(numb):
+    return int(max(numb, key=numb.count))
