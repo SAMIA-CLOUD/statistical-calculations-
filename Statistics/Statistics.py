@@ -37,6 +37,10 @@ class Statistics(Calculator):
         self.result = psd(fetchRawdata(self.data, 'v'))
         return self.result
 
+    def ssd(self):
+        self.result = ssd(fetchRawdata(self.data, 'v'))
+        return self.result
+
     def vpp(self):
         self.result = vpp(fetchRawdata(self.data, 'v'))
         return self.result

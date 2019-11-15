@@ -6,8 +6,7 @@ from CsvReader.CsvReader import CsvReader
 
 class MyTestCase(unittest.TestCase):
     def setUp(self) -> None:
-       # self.statistics = Statistics()
-      self.statistics = Statistics("/Tests/Data/Stat.csv")
+        self.statistics = Statistics("/Tests/Data/datapoints.csv")
 
     def test_instantiate_calculator(self):
         self.assertIsInstance(self.statistics, Statistics)
@@ -19,9 +18,9 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(self.statistics.mean(), 4.0)
 
     def test_median(self):
-        #test_data = CsvReader("Tests/Data/mean.csv").data
-        #result = float(row['r'])
-        self.assertEqual(self.statistics.median(),4)
+        # test_data = CsvReader("Tests/Data/mean.csv").data
+        # result = float(row['r'])
+        self.assertEqual(self.statistics.median(), 4)
 
     def test_mode(self):
         self.assertEqual(self.statistics.mod(), 1)
@@ -29,8 +28,10 @@ class MyTestCase(unittest.TestCase):
     def test_psd(self):
         self.assertEqual(round(self.statistics.psd(), 4), 2.4495)
 
-    def test_vpp(self):
+    def test_ssd(self):
+        self.assertEqual(self.statistics.ssd(), 5)
 
+    def test_vpp(self):
         self.assertEqual(self.statistics.vpp(), 6)
 
     # def test_zscore(self):
