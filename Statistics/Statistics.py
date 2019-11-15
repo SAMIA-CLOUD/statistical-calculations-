@@ -9,6 +9,7 @@ from Statistics.Zscore import zscore
 from CsvReader.CsvReader import CsvReader
 from CsvReader.FetchRawData import fetchRawdata
 
+
 class Statistics(Calculator):
     data = []
 
@@ -43,4 +44,3 @@ class Statistics(Calculator):
     def z_score(self, a):
         self.result = zscore(a)
         return self.result
-

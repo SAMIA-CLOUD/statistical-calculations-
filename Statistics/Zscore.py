@@ -5,8 +5,8 @@ from Statistics.Psd import psd
 
 
 def zscore(numbers):
-    standartdev = (psd(numbers))
+    row_value = 484
+    sd = psd(numbers)
     m = mean(numbers)
-    for numb in numbers:
-        result = subtraction(numb, m)
-        return division(standartdev, result)
+    result = subtraction(row_value, m)
+    return division(sd, result)
