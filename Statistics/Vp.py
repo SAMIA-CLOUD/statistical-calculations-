@@ -5,7 +5,7 @@ from Calculator.Subtraction import subtraction
 from Statistics.Mean import mean
 
 
-def vpp(numbers):
+def vp(numbers):
     num_values = len(numbers)
 
     result = mean(numbers)
