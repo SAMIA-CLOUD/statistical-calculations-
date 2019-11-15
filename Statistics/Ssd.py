@@ -21,4 +21,18 @@ def ssd(data):
         total = addition(total, sq)
     d = division(subtraction(n, 1), total)
     samp_sd = squar_rot(d)
-    return samp_sd
+    actual_sd = statistics.stdev(new_sample)
+    return samp_sd, actual_sd
+
+# def ssd(data,sample_size):
+#     total=0
+#     sample = getSample(data, sample_size)
+#     n = len(sample)
+#     new_mean=mean(sample)
+#     for numb in sample:
+#         result = subtraction(numb, new_mean)
+#         sq = squaree(result)
+#         total = addition(total, sq)
+#     d=division(subtraction(n, 1), total)
+#     samp_sd = squar_rot(d)
+#     return samp_sd

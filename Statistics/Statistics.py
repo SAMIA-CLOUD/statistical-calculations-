@@ -38,8 +38,8 @@ class Statistics(Calculator):
         self.result = psd(po)
         return self.result
 
-    def ssd(self, sd):
-        self.result = ssd(sd)
+    def sample_sd(self, a):
+        self.result = ssd(a)
         return self.result
 
     def vp(self, vp1):

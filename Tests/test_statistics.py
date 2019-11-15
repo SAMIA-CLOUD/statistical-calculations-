@@ -17,7 +17,7 @@ class MyTestCase(unittest.TestCase):
     def test_mean(self):
         test_data = CsvReader("/Tests/Data/datapoints.csv")
         answers = CsvReader("/Tests/Data/answers.csv").data
-        values = fetchRawdata(test_data,'value')
+        values = fetchRawdata(test_data, 'value')
         for column in answers:
             self.assertEqual(self.statistics.mean(values), float((column['mean'])))
         # self.assertEqual(self.statistics.mean(), 4.0)
@@ -25,42 +25,48 @@ class MyTestCase(unittest.TestCase):
     def test_median(self):
         test_data = CsvReader("/Tests/Data/datapoints.csv")
         answers = CsvReader("/Tests/Data/answers.csv").data
-        values = fetchRawdata(test_data,'value')
+        values = fetchRawdata(test_data, 'value')
         for column in answers:
             self.assertEqual(self.statistics.median(values), float((column['median'])))
 
     def test_mode(self):
         test_data = CsvReader("/Tests/Data/datapoints.csv")
         answers = CsvReader("/Tests/Data/answers.csv").data
-        values = fetchRawdata(test_data,'value')
+        values = fetchRawdata(test_data, 'value')
         for column in answers:
             self.assertEqual(self.statistics.mod(values), float((column['mode'])))
 
     def test_psd(self):
         test_data = CsvReader("/Tests/Data/datapoints.csv")
         answers = CsvReader("/Tests/Data/answers.csv").data
-        values = fetchRawdata(test_data,'value')
+        values = fetchRawdata(test_data, 'value')
         for column in answers:
             self.assertEqual(round(self.statistics.psd(values), 4), float((column['PSD'])))
 
     def test_ssd(self):
         test_data = CsvReader("/Tests/Data/datapoints.csv")
-        answers = CsvReader("/Tests/Data/answers.csv").data
-        values = fetchRawdata(test_data,'value')
-        for column in answers:
-            self.assertEqual(self.statistics.ssd(values), float((column['SD'])))
+        # answers = CsvReader("/Tests/Data/answers.csv").data
+        values = fetchRawdata(test_data, 'value')
+        x, y = self.statistics.sample_sd(values)
+        x = round(x, 3)
+        y = round(y, 3)
+        self.assertEqual(x,y)
+        self.assertNotEqual(x, y * 2, "Sample Std Deviation is incorrect")
+
+        # for column in answers:
+        #     self.assertEqual(self.statistics.ssd(values), float((column['SD'])))
 
     def test_vp(self):
         test_data = CsvReader("/Tests/Data/datapoints.csv")
         answers = CsvReader("/Tests/Data/answers.csv").data
-        values = fetchRawdata(test_data,'value')
+        values = fetchRawdata(test_data, 'value')
         for column in answers:
             self.assertEqual(self.statistics.vp(values), float((column['VP'])))
 
     def test_zscore(self):
         test_data = CsvReader("/Tests/Data/datapoints.csv")
         answers = CsvReader("/Tests/Data/answers.csv").data
-        values = fetchRawdata(test_data,'value')
+        values = fetchRawdata(test_data, 'value')
         for column in answers:
             self.assertEqual(self.statistics.z_score(values), float((column['zscore'])))
 
