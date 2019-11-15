@@ -43,15 +43,15 @@ class MyTestCase(unittest.TestCase):
         for column in answers:
             self.assertEqual(round(self.statistics.psd(values), 4), float((column['PSD'])))
 
-    def test_ssd(self):
-        test_data = CsvReader("/Tests/Data/datapoints.csv")
-        # answers = CsvReader("/Tests/Data/answers.csv").data
-        values = fetchRawdata(test_data, 'value')
-        x, y = self.statistics.sample_sd(values)
-        x = round(x, 3)
-        y = round(y, 3)
-        self.assertEqual(x,y)
-        self.assertNotEqual(x, y * 2, "Sample Std Deviation is incorrect")
+    # def test_sstandard_devation(self):
+    #     test_data = CsvReader("/Tests/Data/datapoints.csv")
+    #     # answers = CsvReader("/Tests/Data/answers.csv").data
+    #     values = fetchRawdata(test_data, 'value')
+    #     x, y = self.statistics.sample_sd(values)
+    #     x = round(x, 3)
+    #     y = round(y, 3)
+    #     self.assertEqual(x,y)
+    #     self.assertNotEqual(x, y * 2, "Sample Std Deviation is incorrect")
 
         # for column in answers:
         #     self.assertEqual(self.statistics.ssd(values), float((column['SD'])))
