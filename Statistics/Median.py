@@ -1,3 +1,7 @@
+from Calculator.Addition import addition
+from Calculator.Division import division
+
+
 def median(pool):
     copy = sorted(pool)
     size = len(copy)
