@@ -1,4 +1,5 @@
 import unittest
+from pprint import pprint
 from Statistics.Statistics import Statistics
 from CsvReader.CsvReader import CsvReader
 from CsvReader.FetchRawData import fetchRawdata
@@ -43,18 +44,22 @@ class MyTestCase(unittest.TestCase):
         for column in answers:
             self.assertEqual(round(self.statistics.psd(values), 4), float((column['PSD'])))
 
-    # def test_sstandard_devation(self):
-    #     test_data = CsvReader("/Tests/Data/datapoints.csv")
-    #     # answers = CsvReader("/Tests/Data/answers.csv").data
-    #     values = fetchRawdata(test_data, 'value')
-    #     x, y = self.statistics.sample_sd(values)
-    #     x = round(x, 3)
-    #     y = round(y, 3)
-    #     self.assertEqual(x,y)
-    #     self.assertNotEqual(x, y * 2, "Sample Std Deviation is incorrect")
+    def test_sstandard_devation(self):
+        test_data = CsvReader("/Tests/Data/datapoints.csv")
+        answers = CsvReader("/Tests/Data/answers.csv").data
+        values = fetchRawdata(test_data, 'value')
+        x = self.statistics.sample_sd(values)
+        # x, z = self.statistics.sample_sd(values)
+        # x = round(x, 3)
+        # z = round(z, 3)
+        # self.assertEqual(x, z)
+        x = round(x, 3)
+        for column in answers:
+            self.assertEqual(x, float((column['SD'])))
+        # self.assertNotEqual(x, "Sample Std Deviation is incorrect")
 
-        # for column in answers:
-        #     self.assertEqual(self.statistics.ssd(values), float((column['SD'])))
+    # for column in answers:
+    #     self.assertEqual(self.statistics.ssd(values), float((column['SD'])))
 
     def test_vp(self):
         test_data = CsvReader("/Tests/Data/datapoints.csv")
@@ -67,9 +72,9 @@ class MyTestCase(unittest.TestCase):
         test_data = CsvReader("/Tests/Data/datapoints.csv")
         answers = CsvReader("/Tests/Data/answers.csv").data
         values = fetchRawdata(test_data, 'value')
+        # pprint(values)
         for column in answers:
             self.assertEqual(self.statistics.z_score(values), float((column['zscore'])))
 
-
-if __name__ == '__main__':
-    unittest.main()
+    if __name__ == '__main__':
+        unittest.main()

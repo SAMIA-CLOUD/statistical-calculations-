@@ -14,4 +14,4 @@ def sample_mean(data, sample_size):
     num_values = len(sample)
     for num in sample:
         total = addition(total, num)
-    return division(total, num_values)
+    return division(num_values,total)

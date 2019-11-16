@@ -8,5 +8,5 @@ def zscore(numbers):
     row_value = 484
     sd = psd(numbers)
     m = mean(numbers)
-    result = subtraction(row_value, m)
-    return division(sd, result)
+    result = subtraction(m, row_value)
+    return division(sd,result)

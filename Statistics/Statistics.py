@@ -4,11 +4,11 @@ from Statistics.SampleMean import sample_mean
 from Statistics.Median import median
 from Statistics.Mode import mod
 from Statistics.Psd import psd
+from Statistics.Ssd import ssd
 from Statistics.Vp import vp
 from Statistics.Zscore import zscore
 # from Statistics.Ssd import ssd
 from CsvReader.CsvReader import CsvReader
-from CsvReader.FetchRawData import fetchRawdata
 
 
 class Statistics(Calculator):
@@ -48,4 +48,3 @@ class Statistics(Calculator):
 
     def z_score(self, a):
         self.result = zscore(a)
-        return self.result
